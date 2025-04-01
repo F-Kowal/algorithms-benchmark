@@ -1,0 +1,72 @@
+```
+
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.5039/23H2/2023Update/SunValley3)
+AMD Ryzen 7 5800H with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 9.0.200
+  [Host]     : .NET 9.0.2 (9.0.225.6610), X64 RyuJIT AVX2
+  DefaultJob : .NET 9.0.2 (9.0.225.6610), X64 RyuJIT AVX2
+
+
+```
+| Method             | Size   | DataType     | Mean                | Error             | StdDev            |
+|------------------- |------- |------------- |--------------------:|------------------:|------------------:|
+| **InsertionSort**      | **10**     | **AlmostSorted** |            **74.66 ns** |          **0.747 ns** |          **0.698 ns** |
+| MergeSort          | 10     | AlmostSorted |           195.50 ns |          3.755 ns |          8.243 ns |
+| QuickSortClassical | 10     | AlmostSorted |            97.14 ns |          1.845 ns |          1.895 ns |
+| QuickSortLibrary   | 10     | AlmostSorted |            86.42 ns |          0.550 ns |          0.488 ns |
+| **InsertionSort**      | **10**     | **FewUnique**    |            **72.01 ns** |          **0.176 ns** |          **0.156 ns** |
+| MergeSort          | 10     | FewUnique    |           185.96 ns |          2.650 ns |          2.479 ns |
+| QuickSortClassical | 10     | FewUnique    |            96.73 ns |          1.291 ns |          1.208 ns |
+| QuickSortLibrary   | 10     | FewUnique    |            80.93 ns |          0.323 ns |          0.302 ns |
+| **InsertionSort**      | **10**     | **Random**       |            **80.09 ns** |          **0.325 ns** |          **0.288 ns** |
+| MergeSort          | 10     | Random       |           184.74 ns |          0.550 ns |          0.515 ns |
+| QuickSortClassical | 10     | Random       |            87.55 ns |          0.721 ns |          0.674 ns |
+| QuickSortLibrary   | 10     | Random       |            82.67 ns |          0.264 ns |          0.246 ns |
+| **InsertionSort**      | **10**     | **Reversed**     |            **84.82 ns** |          **0.721 ns** |          **0.675 ns** |
+| MergeSort          | 10     | Reversed     |           180.61 ns |          3.208 ns |          2.679 ns |
+| QuickSortClassical | 10     | Reversed     |           126.39 ns |          1.032 ns |          0.965 ns |
+| QuickSortLibrary   | 10     | Reversed     |            90.57 ns |          0.171 ns |          0.160 ns |
+| **InsertionSort**      | **10**     | **Sorted**       |            **62.44 ns** |          **0.341 ns** |          **0.303 ns** |
+| MergeSort          | 10     | Sorted       |           177.87 ns |          0.513 ns |          0.428 ns |
+| QuickSortClassical | 10     | Sorted       |           128.64 ns |          0.258 ns |          0.229 ns |
+| QuickSortLibrary   | 10     | Sorted       |            69.83 ns |          0.348 ns |          0.308 ns |
+| **InsertionSort**      | **1000**   | **AlmostSorted** |         **2,073.39 ns** |         **18.301 ns** |         **17.119 ns** |
+| MergeSort          | 1000   | AlmostSorted |        23,204.64 ns |         60.879 ns |         50.836 ns |
+| QuickSortClassical | 1000   | AlmostSorted |       158,560.82 ns |        209.055 ns |        174.571 ns |
+| QuickSortLibrary   | 1000   | AlmostSorted |         3,327.38 ns |         33.198 ns |         25.919 ns |
+| **InsertionSort**      | **1000**   | **FewUnique**    |       **114,170.27 ns** |        **442.733 ns** |        **392.471 ns** |
+| MergeSort          | 1000   | FewUnique    |        24,779.01 ns |        350.689 ns |        328.035 ns |
+| QuickSortClassical | 1000   | FewUnique    |        26,710.82 ns |        363.325 ns |        339.855 ns |
+| QuickSortLibrary   | 1000   | FewUnique    |         4,990.23 ns |         13.741 ns |         12.853 ns |
+| **InsertionSort**      | **1000**   | **Random**       |       **133,151.70 ns** |        **174.338 ns** |        **154.546 ns** |
+| MergeSort          | 1000   | Random       |        24,649.31 ns |        363.706 ns |        340.211 ns |
+| QuickSortClassical | 1000   | Random       |        10,256.02 ns |         47.270 ns |         44.217 ns |
+| QuickSortLibrary   | 1000   | Random       |         7,275.34 ns |         27.755 ns |         25.962 ns |
+| **InsertionSort**      | **1000**   | **Reversed**     |       **251,383.25 ns** |        **309.003 ns** |        **289.042 ns** |
+| MergeSort          | 1000   | Reversed     |        21,814.69 ns |         71.217 ns |         63.132 ns |
+| QuickSortClassical | 1000   | Reversed     |       303,772.53 ns |      3,550.374 ns |      3,321.022 ns |
+| QuickSortLibrary   | 1000   | Reversed     |         5,397.06 ns |         14.131 ns |         12.527 ns |
+| **InsertionSort**      | **1000**   | **Sorted**       |           **774.28 ns** |          **2.056 ns** |          **1.717 ns** |
+| MergeSort          | 1000   | Sorted       |        22,437.14 ns |        128.024 ns |        106.906 ns |
+| QuickSortClassical | 1000   | Sorted       |       356,407.26 ns |      2,311.720 ns |      2,162.384 ns |
+| QuickSortLibrary   | 1000   | Sorted       |         3,251.42 ns |         27.793 ns |         25.998 ns |
+| **InsertionSort**      | **100000** | **AlmostSorted** |       **494,086.39 ns** |      **5,829.857 ns** |      **5,453.251 ns** |
+| MergeSort          | 100000 | AlmostSorted |     4,492,008.28 ns |     53,908.047 ns |     50,425.621 ns |
+| QuickSortClassical | 100000 | AlmostSorted |   708,976,693.33 ns | 11,728,619.275 ns | 10,970,957.752 ns |
+| QuickSortLibrary   | 100000 | AlmostSorted |     1,065,292.79 ns |      4,604.986 ns |      4,307.507 ns |
+| **InsertionSort**      | **100000** | **FewUnique**    | **1,085,566,050.00 ns** |    **964,875.615 ns** |    **855,337.101 ns** |
+| MergeSort          | 100000 | FewUnique    |     6,601,821.60 ns |    131,680.450 ns |    151,643.402 ns |
+| QuickSortClassical | 100000 | FewUnique    |   124,149,061.25 ns |  2,344,320.980 ns |  2,302,436.668 ns |
+| QuickSortLibrary   | 100000 | FewUnique    |     1,831,742.50 ns |      7,374.676 ns |      6,158.188 ns |
+| **InsertionSort**      | **100000** | **Random**       | **1,220,824,942.86 ns** |  **5,245,275.178 ns** |  **4,649,799.823 ns** |
+| MergeSort          | 100000 | Random       |     7,786,484.79 ns |    147,464.414 ns |    137,938.304 ns |
+| QuickSortClassical | 100000 | Random       |     4,664,874.76 ns |     37,010.591 ns |     30,905.520 ns |
+| QuickSortLibrary   | 100000 | Random       |     4,297,622.15 ns |     15,548.928 ns |     13,783.720 ns |
+| **InsertionSort**      | **100000** | **Reversed**     | **2,433,788,150.00 ns** |  **2,980,488.686 ns** |  **2,642,125.588 ns** |
+| MergeSort          | 100000 | Reversed     |     4,523,745.16 ns |     81,572.017 ns |     76,302.516 ns |
+| QuickSortClassical | 100000 | Reversed     |   555,072,240.00 ns |  5,556,799.791 ns |  5,197,833.974 ns |
+| QuickSortLibrary   | 100000 | Reversed     |     1,079,895.30 ns |      5,651.949 ns |      5,286.837 ns |
+| **InsertionSort**      | **100000** | **Sorted**       |       **213,548.02 ns** |      **1,474.784 ns** |      **1,379.514 ns** |
+| MergeSort          | 100000 | Sorted       |     4,458,128.04 ns |     83,546.149 ns |     89,393.444 ns |
+| QuickSortClassical | 100000 | Sorted       |   365,748,807.69 ns |  1,326,744.840 ns |  1,107,892.030 ns |
+| QuickSortLibrary   | 100000 | Sorted       |     1,062,385.00 ns |      6,586.524 ns |      6,161.039 ns |
